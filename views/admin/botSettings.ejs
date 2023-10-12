@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Settings</title>
+</head>
+<body>
+    <h1>Bot Settings</h1>
+
+    <!-- Form for updating bot settings -->
+    <form action="/admin/updateBotSettings" method="POST">
+        <!-- Input fields for API keys and other settings -->
+        <label for="apiKey">API Key:</label>
+        <input type="text" id="apiKey" name="apiKey" value="<%= botSettings.apiKey %>">
+        
+        <!-- Other settings inputs... -->
+
+        <button type="submit">Save Settings</button>
+    </form>
+</body>
+</html>

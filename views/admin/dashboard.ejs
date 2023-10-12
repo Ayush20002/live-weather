@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Add some basic CSS for better styling and responsiveness */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style the "User Management" section as a link */
+        a {
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        /* Style the form for updating the API key */
+        form {
+            margin-top: 20px;
+        }
+
+        /* Style the update button */
+        #updateButton {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #updateButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome!!,On Board Users</h1>
+    </header>
+
+    <div class="container">
+        <!-- Form for updating the API key -->
+        <form action="/admin/botkey" method="POST">
+            <label for="apiKey">API Key:</label>
+            <input type="text" id="apiKey" name="apiKey" value="<%= botSettings ? botSettings.apiKey : 'Default API Key' %>">
+            <button type="submit" id="updateButton">Update</button>
+        </form>
+
+        <!-- Make "User Management" clickable and link it to a user management page -->
+        <a href="/user-management">
+            <h2>User Management</h2>
+        </a>
+
+        <ul>
+            <% users.forEach(function(user) { %>
+                <li>
+                    <span><%= user.username %></span>
+                    <span><%= user.email %></span>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>

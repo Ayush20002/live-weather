@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <!-- Add your CSS styling here -->
+</head>
+<body>
+    <header>
+        <h1>User Management</h1>
+    </header>
+
+    <div class="container">
+        <ul>
+            <% users.forEach(function(user) { %>
+                <li>
+                    <span><%= user.username %></span>
+                    <span><%= user.email %></span>
+                    <!-- Add a form for blocking/deleting the user -->
+                    <form action="/user-management/block/<%= user._id %>" method="post">
+                        <button type="submit">Block</button>
+                    </form>
+                    <form action="/user-management/delete/<%= user._id %>" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
